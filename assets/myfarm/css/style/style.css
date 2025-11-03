@@ -1,0 +1,21 @@
+.nav-content-area {
+  margin-top: 20px;
+  position: relative;
+  min-height: 150px; /* keep space reserved */
+}
+
+.nav-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+.nav-section.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}

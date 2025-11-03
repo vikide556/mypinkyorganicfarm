@@ -1,0 +1,26 @@
+{% extends "myfarm/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="gallery">
+    <h2>Gallery</h2>
+    <p>Take a look at our farm, animals, and fresh produce.</p>
+    <div class="row mt-4">
+        <div class="col-md-4 mb-3">
+            <img src="{% static 'images/farm.jpg' %}" class="img-fluid rounded" alt="Farm">
+        </div>
+        <div class="col-md-4 mb-3">
+            <img src="{% static 'images/rabbit.jpg' %}" class="img-fluid rounded" alt="Rabbits">
+        </div>
+        <div class="col-md-4 mb-3">
+            <img src="{% static 'images/chicken.jpg' %}" class="img-fluid rounded" alt="Chickens">
+        </div>
+        <div class="col-md-4 mb-3">
+            <img src="{% static 'images/vegetables.jpg' %}" class="img-fluid rounded" alt="Vegetables">
+        </div>
+        <div class="col-md-4 mb-3">
+            <img src="{% static 'images/goat-milk.jpg' %}" class="img-fluid rounded" alt="Goat Milk">
+        </div>
+    </div>
+</section>
+{% endblock %}

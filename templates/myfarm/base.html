@@ -1,0 +1,234 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}MyPinky Organic Farm{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS Bundle (includes Popper) -->
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+     <!-- Bootstrap Icons -->
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+      <!-- Custom CSS -->
+       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'myfarm/css/style/style.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'myfarm/images/favicon.ico' %}">
+
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="custom-navbar">
+           
+    <a class="custom-brand" href="{% url 'home' %}">
+           <img src="{% static 'myfarm/images/logo.png' %}" alt="MyPinky Farm Logo" class="logo">
+             </a>
+
+            <!-- Hamburger Menu -->
+             <div class="nav-content-area">
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+  <ul class="custom-nav" id="custom-nav">
+    <li data-target="home-section"><a class="custom-link" href="{% url 'home' %}">Home</a></li>
+    <li data-target="about-section"><a class="custom-link" href="{% url 'about' %}">About Us</a></li>
+    <li data-target="products-section"><a class="custom-link" href="{% url 'product_list' %}">Products</a></li>
+    <li data-target="contact-section"><a class="custom-link" href="{% url 'contact' %}">Contact Us</a></li>
+    <li data-target="gallery-section"><a class="custom-link" href="{% url 'gallery' %}">Gallery</a></li>
+    <li data-target="faq-section"><a class="custom-link" href="{% url 'faq' %}">FAQ</a></li>
+  </ul>
+          </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class= "main-wrapper">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+   <!-- ✅ Fixed Footer -->
+<footer class="footer text-light text-center py-1" style="background-color: #d63384;">
+  <div class="d-flex flex-wrap justify-content-center align-items-center gap-3 mb-2">
+  <div class="footer-tag fw-bold text-center">
+    No Space is too small in Agribusiness
+  </div>
+
+    <!-- OUR VALUES Button -->
+    <button class="btn btn-sm btn-outline-light"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#footerValues"
+            aria-expanded="false"
+            aria-controls="footerValues"
+            style="font-size: 15px; font-weight: bold; font-family: Georgia, serif; color: white;">
+      OUR VALUES
+    </button>
+
+    <!-- CONTACT US Button -->
+    <button class="btn btn-sm btn-outline-light"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#footerContact"
+            aria-expanded="false"
+            aria-controls="footerContact"
+            style="font-size: 15px; font-weight: bold; font-family: Georgia, serif; color: white;">
+      VISIT US
+    </button>
+  </div>
+
+  <!-- OUR VALUES Collapse -->
+  <div class="collapse" id="footerValues">
+    <div class="card card-body border-0 bg-transparent text-dark text-center">
+      <ul class="list-unstyled mb-0 fs-5">
+        <li>🌍 Sustainability</li>
+        <li>🤝 Integrity</li>
+        <li>💡 Innovation</li>
+        <li>👩‍🌾 Empowering Farmers</li>
+      </ul>
+    </div>
+  </div>
+  <!-- CONTACT US Collapse -->
+  <div class="collapse" id="footerContact">
+    <div class="card card-body border-0 bg-transparent text-dark text-center">
+      <ul class="list-unstyled mb-0 fs-5">
+        <li>📧 <a href="mailto:mypinkyorganicfarmltd@gmail.com">mypinkyorganicfarmltd@gmail.com</a></li>
+        <li>📞 <a href="tel:+254748080295">0748 080295</a></li>
+        <a href="https://mypinkyorganicfarm.com" target="_blank" style="text-decoration: none; color: black;">
+  Find us on Google Maps
+</a>
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- COPYRIGHT -->
+  <hr class="border-light">
+<p class="mb-0" style="font-size: 18px; font-weight: 300; color: black;">
+  © 2025 <strong>MyPinky Organic Farm</strong>. All rights reserved.
+
+Terms & Privacy Policy Apply
+</p>
+</footer>
+    <!-- JS for menu toggle -->
+    <script>
+document.getElementById("menu-toggle").addEventListener("click", function() {
+    document.getElementById("custom-nav").classList.toggle("active");
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector(".gallery-scroll");
+  if (container) {
+    container.innerHTML += container.innerHTML;
+    let scrollSpeed = 1;
+
+    function continuousScroll() {
+      container.scrollLeft += scrollSpeed;
+      if (container.scrollLeft >= container.scrollWidth / 2) {
+        container.scrollLeft = 0;
+      }
+      requestAnimationFrame(continuousScroll);
+    }
+    continuousScroll();
+
+    container.addEventListener("mouseenter", () => scrollSpeed = 0);
+    container.addEventListener("mouseleave", () => scrollSpeed = 1);
+  }
+});
+
+// ✅ Fix logo spin (using class, not invalid ID)
+document.querySelector(".logo").addEventListener("click", function() {
+  this.classList.toggle("spin");
+});
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("fade-in");
+
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+      if (!href || href.startsWith("#") || this.target === "_blank") return;
+
+      e.preventDefault();
+      document.body.classList.remove("fade-in");
+      setTimeout(() => {
+        window.location.href = href;
+      }, 500); // match transition duration
+    });
+  });
+});
+document.addEventListener("DOMContentLoaded", function() {
+    const toastElList = [].slice.call(document.querySelectorAll('.toast'))
+    toastElList.map(function(toastEl) {
+      const toast = new bootstrap.Toast(toastEl)
+      toast.show()
+    })
+  });
+  
+  // Hide message after 4 seconds
+  setTimeout(function() {
+    let messageContainer = document.getElementById("message-container");
+    if (messageContainer) {
+      messageContainer.style.display = "none";
+    }
+  }, 4000);  // 4000ms = 4 seconds
+
+// ✅ Nav hover content switcher
+document.querySelectorAll(".custom-nav li").forEach(item => {
+  item.addEventListener("mouseenter", () => {
+    // Hide all sections
+    document.querySelectorAll(".nav-section").forEach(section => {
+      section.classList.remove("active");
+    });
+
+    // Show the target section
+    const targetId = item.getAttribute("data-target");
+    document.getElementById(targetId).classList.add("active");
+  });
+
+  // Optional: return to "Home" when mouse leaves nav
+  item.addEventListener("mouseleave", () => {
+    document.querySelectorAll(".nav-section").forEach(section => {
+      section.classList.remove("active");
+    });
+    document.getElementById("home-section").classList.add("active");
+  });
+});
+// Auto-hide alerts after 4 seconds
+  document.addEventListener("DOMContentLoaded", function () {
+    const alerts = document.querySelectorAll(".alert");
+    alerts.forEach(alert => {
+      setTimeout(() => {
+        const bsAlert = new bootstrap.Alert(alert);
+        bsAlert.close();
+      }, 4000);
+    });
+  })
+
+</script>
+    <!-- Toast Container -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  {% if messages %}
+    {% for message in messages %}
+      <div class="toast align-items-center text-bg-{{ message.tags }} border-0 mb-2"
+           role="alert"
+           aria-live="assertive"
+           aria-atomic="true"
+           data-bs-delay="4000">  <!-- auto-hide after 4s -->
+          <div class="d-flex">
+          <div class="toast-body">
+            {{ message }}
+          </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                  data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+    {% endfor %}
+  {% endif %}
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+{% extends "myfarm/base.html" %}
+{% load static %}
+
+{% block title %}FAQ | MyPinky Organic Farm{% endblock %}
+
+{% block content %}
+ <div class="nav-section active" id="products-section">
+<section class="faq-section py-5 bg-light">
+  <div class="container">
+    <h2 class="mb-4 text-center">Frequently Asked Questions</h2>
+    <p class="text-center mb-5">Find answers to the most common questions about MyPinky Organic Farm.</p>
+
+    <div class="accordion shadow-sm rounded" id="faqAccordion">
+      
+      <!-- Question 1 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faq1">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+            🌱 What products do you offer?
+          </button>
+        </h2>
+        <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            We provide fresh organic vegetables, dairy goats, improved kienyeji chickens, rabbits, and natural goat milk.
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faq2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+            🐐 How can I buy your products?
+          </button>
+        </h2>
+        <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            You can contact us via our website, phone, or visit our farm shop at Racecourse, Dagoretti. We also do deliveries on request.
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faq3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+            🚚 Do you offer delivery services?
+          </button>
+        </h2>
+        <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes, we deliver fresh products within Nairobi and nearby areas. Delivery charges may apply depending on distance.
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="faq4">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+            🐇 Is your farm open to visitors?
+          </button>
+        </h2>
+        <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Absolutely! You are welcome to visit us and see how we farm. Please book a visit in advance through our contact page.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "myfarm/base.html" %}
+{% load static %}
+{% block title %}Gallery | MyPinky Organic Farm{% endblock %}
+{% block content %}
+<section class="gallery-section container py-2">
+  <h2 class="mb-3" style="color: #30b930;">MyPinky Organic Farm Gallery</h2>
+  <p class="mb-4" style="color: #30b930;">Take a look at our farm, animals, and fresh produce.</p>
+
+  <div class="gallery-scroll">
+    <!-- Card 1 -->
+    <div class="custom-card">
+      <img src="{% static 'myfarm/images/spinachsec.png' %}" alt="CEO AT SPINACH SECTION">
+      <div class="card-body">
+       
+       <p class="card-text" style="color: #e91e63; font-size: 1.1rem; font-weight: 500; letter-spacing: 0.5px;">
+  SPINACH SECTION.
+</p>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="custom-card">
+      <img src="{% static 'myfarm/images/rabiitsection.png' %}" alt="RABBIT SECTION">
+      <div class="card-body">
+        
+       <p class="card-text" style="color: #e91e63; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.5px;">
+  AT THE RABBIT SECTION
+</p>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="custom-card">
+      <img src="{% static 'myfarm/images/spinachsectiontour.png' %}" alt="SPINACHTOUR">
+      <div class="card-body">
+       
+       <p class="card-text" style="color: #e91e63; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">
+  THE MULTILEVEL GARDENS
+</p>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+      <div class="custom-card">
+       <img src="{% static 'myfarm/images/ATGREENHOUS.png' %}" alt="FARM TOUR WITH MY STAFF">
+        <div class="card-body">
+        
+       <p class="card-text" style="color: #e91e63; font-size: 1.1rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;">
+  MD AT THE GREENHOUSE.
+</p>
+      </div>
+    </div>
+    <!-- Card 5 -->
+     <div class="custom-card">
+      <img src="{% static 'myfarm/images/tourwithfarmmanager.png' %}" alt="FARM MANAGER TAKING VISITOR AROUND THE FARM">
+      <div class="card-body">
+        
+      <p class="card-text" style="color: #e91e63; font-size: 1rem; font-weight: 500;">
+  TAKING VISITORS FOR FARM TOUR.
+</p>
+      </div>
+    </div>
+  </div>
+  {% endblock content %}
+</section>

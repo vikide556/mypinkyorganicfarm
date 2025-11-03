@@ -1,0 +1,35 @@
+{% extends "myfarm/base.html" %}
+{% load static %}
+
+{% block title %}Home | MyPinky Organic Farm{% endblock %}
+
+{% block content %}
+
+<!-- Hero Image (appears at the very top) -->
+<section class="hero-image">
+  <img src="{% static 'images/greenhouse.jpg' %}" class="img-fluid w-100" alt="Greenhouse">
+</section>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="nav-section active" id="products-section">
+      <h1><span class="pink-text">🌱</span> Welcome to MyPinky Organic Farm Ltd</h1>
+      <p>Locally grown, chemical-free. From farm to the table.</p>
+      <a href="{% url 'product_list' %}" class="btn btn-pink rounded-pill px-4 py-2">
+        View our Products
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Intro Section -->
+<section class="intro">
+  <h2>Why Choose Us?</h2>
+  <p>
+    At MyPinky Organic Farm, we believe in fresh, healthy, and chemical-free food.  
+    Everything you see here is grown with love and delivered straight from our farm to your plate.
+  </p>
+</section>
+
+{% endblock %}

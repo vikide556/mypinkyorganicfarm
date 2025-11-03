@@ -1,0 +1,837 @@
+/* ------------------- Reset / Base ------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.html,
+.body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fffdfd;
+  color: #333;
+  overflow: visible;
+  scroll-behavior: smooth;
+}
+
+.main {
+  flex: 1;
+  height: 200px;
+  padding-top: 70px; /* prevent overlap with navbar */
+  padding-bottom: 70px;
+  overflow-y: auto;
+}
+
+/* ------------------- Navbar ------------------- */
+.custom-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* 👈 Full width */
+  height: 70px;
+  background: #d63384;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 0; /* 👈 No rounded corners */
+  margin: 0; /* 👈 Remove any gap */
+  z-index: 1000;
+}
+
+.custom-brand {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+.btn-pink {
+  background-color: #e83e8c; /* pink */
+  color: #fff;
+  font-weight: 500;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-pink:hover {
+  background-color: #e83e8c; /* darker pink on hover */
+  color: #fff;
+}
+
+.logo {
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
+  border-radius: 60%;
+  margin-right: 0px;
+  animation: spin 5s linear infinite;
+}
+
+.logo.spin {
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.logo.spin:hover {
+  animation-play-state: paused;
+}
+
+.custom-nav {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.custom-link {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.custom-link:hover {
+  color: #ffd700;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: green;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .custom-nav {
+    position: absolute;
+    top: 36px;
+    right: 0px;
+    left: 100;
+    background-color: #e83e8c;
+    flex-direction: column;
+    width: 220px;
+    padding: 15px;
+    display: flex;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+  }
+
+  .custom-nav.active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* ------------------- Contact Section ------------------- */
+.contact-section {
+  padding: 60px 20px;
+  background: #f9f9f9; /* light background */
+  border-radius: 16px;
+  margin: 80px auto 40px; /* some breathing space */
+  max-width: 1200px; /* keep content centered */
+}
+
+/* Left Column */
+.contact-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2e7d32; /* organic green */
+}
+
+.contact-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.contact-section ul {
+  padding-left: 0;
+  margin-top: 25px;
+}
+
+.contact-section ul li a {
+  color: #444;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-section ul li a:hover {
+  color: #b01292; /* pink hover */
+}
+
+/* Social Icons */
+.contact-section .bi {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.contact-section .bi:hover {
+  transform: scale(1.2);
+  color: #2e7d32; /* hover green */
+}
+
+/* Form Card */
+.contact-section .card {
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid #eee;
+}
+
+
+.card-img-top {
+  height: 200px; /* adjust as needed */
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.card-img-top[src] {
+  opacity: 1;
+}
+
+.contact-section .form-label {
+  font-weight: 600;
+  color: #333;
+}
+
+.contact-section .form-control {
+  border-radius: 8px;
+  padding: 3px 5px;
+  border: 1px solid #ccc;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-section .form-control:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 6px rgba(46, 125, 50, 0.3);
+}
+
+/* Submit Button */
+.contact-section .btn-success {
+  background: #2e7d32;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.contact-section .btn-success:hover {
+  background: #256028; /* darker green */
+}
+
+/* ------------------- Responsive ------------------- */
+@media (max-width: 768px) {
+  .contact-section {
+    /* padding: 40px 15px; */
+    margin: 40px auto;
+    margin-top: 20px; /* reduce gap from top */
+    padding-top: 20px;
+  }
+
+  .contact-section h2 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .contact-section p,
+  .contact-section ul,
+  .contact-section .social-links {
+    text-align: center;
+  }
+}
+
+
+
+
+/* Optional global .section styling */
+.section {
+  padding: 40px 20px 30px;
+  text-align: center;
+  /* if you want flexbox */
+  /* display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center; */
+}
+
+.section-product {
+  min-height: auto; /* only applies to sections with .section */
+  padding: 40px 20px 30px;
+  display: block;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.intro {
+  min-height: 20vh; /* 100% of the viewport height */
+  padding: 40px 20px; /* your existing padding */
+  display: flex; /* use flexbox for easy centering */
+  flex-direction: column; /* stack content vertically */
+  justify-content: center; /* vertical centering */
+  align-items: center; /* horizontal centering */
+  text-align: center; /* center the text inside */
+  box-sizing: border-box;
+  color: green;
+}
+
+.hero {
+  min-height: 30vh; /* adjust as you wish */
+  background: linear-gradient(135deg, #30C05D, #30C05D);
+  color: #fff;
+  width: 100vw;          /* ✅ true full width */
+  margin-left: calc(-50vw + 50%); /* ✅ cancels any container centering */
+  position: relative;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 0;
+  overflow: hidden;       /* ✅ hides any stray overflow */
+}
+
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.products .card {
+  max-height: 50px; /* adjust number until it looks right */
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.pink-text {
+  color: #e75480; /* Deep Pink */
+}
+
+.about {
+  background: #f9f9f9;
+  width: 100%;
+  position: sticky;
+  border-radius: 16px;
+  padding: 40px 20px; /* Optional: add some padding for better spacing */
+  text-align: center; /* Centers all inline content, including h2 and p */
+}
+
+.about h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #006400;
+  text-align: center; /* Ensures heading is centered */
+}
+
+.about p {
+  max-width: none;     /* remove the 800px limit */
+  width: 100%;         /* make it full width */
+  margin: 0;           /* remove auto-centering */
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: justify; /* optional: makes it look clean across the width */
+}
+
+.team-section {
+  background: #f9f9f9;
+  padding: 40px 20px;
+  margin-top: 40px;.about p {
+  max-width: none;     /* remove the 800px limit */
+  width: 100%;         /* make it full width */
+  margin: 0;           /* remove auto-centering */
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: justify; /* optional: makes it look clean across the width */
+}
+   
+  border-radius: 16px;
+  text-align: center;
+}
+
+.team-section h2 {
+  font-size: 2rem;
+  color: #006400;
+  margin-bottom: 30px;
+}
+
+#directors-wrapper {
+  display: flex;
+  flex-wrap: nowrap; /* single row, allows horizontal scroll */
+  justify-content: center; /* center all cards */
+  gap: 20px; /* space between cards */
+  overflow-x: auto; /* scroll horizontally on small screens */
+  padding: 10px 0;
+  scroll-behavior: smooth;
+}
+
+.director-card {
+  flex: 0 0 auto; /* prevent shrinking */
+  width: 300px; /* fixed card width */
+  border-radius: 20px; /* rounded corners */
+  overflow: hidden; /* ensures image follows card rounding */
+  transition: transform 0.3s ease;
+  background: #fff;
+}
+
+.director-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.director-card:hover {
+  transform: translateY(-5px);
+}
+ .product-section {
+  height: auto;
+  min-height: 100vh !important;
+  background-color: #ffffff; /* 👈 white background */
+  padding: 60px 0;          /* 👈 top & bottom spacing */
+}
+/* Each product card */
+.product-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.product-description {
+  margin-top: 5px; /* adjust until it looks right */
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Product images (force equal size) */
+.product-card img {
+  width: 100%;
+  height: 200px; /* 👈 force equal height */
+  object-fit: cover; /* 👈 crops while keeping proportions */
+  border-bottom: 1px solid #ddd;
+}
+
+/* Card body */
+.product-card h3 {
+  font-size: 20px;
+  margin: 12px 0 8px;
+}
+
+.product-card p {
+  font-size: 14px;
+  color: #555;
+  padding: 0 10px 10px;
+}
+
+.product-card a {
+  display: inline-block;
+  margin: 10px 0 15px;
+  padding: 8px 16px;
+  background: #b01292;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.card-img-top {
+  padding-top: 0px;
+  height: 250px; /* Fix image height */
+  object-fit: cover; /* Crop but keep proportions */
+  border-radius: 12px 12px 0 0; /* Optional: rounded top corners */
+}
+
+.product-card a:hover {
+  background: #8a0e72;
+}
+
+.section-title {
+  font-size: 2.5rem; /* bigger text */
+  font-weight: bold; /* bold */
+  color: #28a745; /* green color */
+}
+
+.btn-cta:hover {
+  background: #ff1493;
+}
+
+/* ------------------- Gallery (for infinite JS-driven scroll) ------------------- */
+.gallery-section > h2,
+.gallery-section > p {
+  text-align: center;
+  color: #2e7d32;
+  font-size: 2rem; /* bigger heading (≈32px) */
+  font-weight: 700; /* bold */
+  margin-bottom: 12px;
+}
+
+.gallery-section > p {
+  font-size: 1.4rem; /* increase paragraph font size */
+}
+
+/* Add space below heading */
+.gallery-section > h2 {
+  margin-bottom: 20px;
+}
+
+.bg-pink {
+  background-color: #e75480 !important; /* Pink shade */
+}
+
+/* Add space below paragraph before cards */
+.gallery-section > p {
+  margin-bottom: 40px;
+}
+
+/* Push entire section down from element above */
+.gallery-section {
+  margin-top: 60px; /* instead of padding-top */
+}
+
+.gallery-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* hide scrollbars; JS handles movement */
+  align-self: stretch;
+  text-align: center; /* avoid shrinking inside centered section */
+}
+
+.gallery-scroll {
+  display: flex;
+  flex-wrap: nowrap; /* single row */
+  gap: 24px; /* space between cards */
+  white-space: nowrap; /* belt-and-suspenders no-wrap */
+  overflow: hidden;
+  scrollbar-width: none; /* keep it clean; JS scrolls */
+  padding: 10px 6px;
+  width: 100%;
+}
+
+.gallery-img {
+  opacity: 0;
+  transform: scale(0.98); /* slight zoom-out at start */
+  transition: opacity 0.06s ease, transform 0.06s ease;
+}
+
+.gallery-img.loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.faq-section h2 {
+  margin-top: 40px; /* push heading down below navbar */
+  text-align: center;
+  color: #2e7d32; /* green heading */
+  font-weight: 700; /* bold */
+  font-size: 2rem; /* larger font size */
+}
+
+.faq-section p {
+  text-align: center;
+  color: #2e7d32; /* green paragraph */
+  font-size: 1.2rem; /* bigger than default */
+  margin-bottom: 40px; /* space below paragraph */
+}
+
+.custom-card {
+  flex: 0 0 auto;
+  width: 300px;
+  height: 300px;
+  border: 3px solid #4CAF50;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.custom-card:hover {
+  transform: scale(1.05);
+  border-color: #2e7d32 !important; /* zoom effect when hovering */
+}
+
+.custom-card img {
+  width: 120%;
+  height: 95%;
+  object-fit: cover;
+  display: block;
+  object-fit: cover;
+}
+
+.custom-card .card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+body {
+  opacity: 1; /* fully visible */
+  transition: opacity 0.08s; /* smooth change */
+}
+
+body.fade-out {
+  opacity: 0; /* fade to invisible */
+}
+
+body.fade-in {
+  opacity: 1; /* smoothly fade in */
+}
+
+.product-detail img {
+  max-width: 300px;
+  max-height: 250px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}
+
+.custom-card .card-body {
+  padding: 12px;
+  flex: 1; /* fill remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.product-detail img {
+  max-width: 300px; /* 👈 limit how wide the image can go */
+  max-height: 300px; /* 👈 limit the height */
+  width: 100%; /* 👈 make it responsive within its box */
+  height: auto; /* 👈 keep aspect ratio */
+  border-radius: 12px; /* optional: rounded corners */
+  display: flex;
+  margin: 0 auto; /* 👈 centers the image */
+}
+
+/* product detail layout */
+.product-detail .row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center; /* vertically center image + text */
+  gap: 20px; /* space between columns */
+}
+
+.custom-card {
+  flex: 0 0 auto; /* prevent shrinking, keep size */
+  width: 250px; /* fixed width for cards */
+  background: #fff; /* white background */
+  border-radius: 10px; /* rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+#directors-wrapper {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  flex-wrap: nowrap; /* important for horizontal scroll */
+  justify-content: center;
+  padding: 20px 0;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Chrome, Safari, Opera */
+#directors-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* Director Card */
+.director-card {
+  flex: 0 0 auto;
+  width: 300px;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  padding-top: 100px;
+  position: relative; /* important for absolute image */
+}
+
+/* Circular Image */
+.director-card img {
+  width:150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Card body */
+.director-card .card-body {
+  padding: 60px 15px 20px;
+}
+
+.director-card:hover {
+  transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+  .custom-card {
+    width: 260px;
+    height: 340px;
+  }
+}
+
+/* Optional scroll buttons (won't interfere with JS) */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.005s ease;
+}
+
+.scroll-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.scroll-btn.left {
+  left: 10px;
+}
+
+.scroll-btn.right {
+  right: 10px;
+}
+
+/* General style for all social icons */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+/* Specific brand colors */
+.social-icon.facebook {
+  background-color: #1877f2; /* Facebook Blue */
+}
+
+.social-icon.instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.social-icon.tiktok {
+  background-color: #000; /* TikTok black */
+}
+
+.social-icon.whatsapp {
+  background-color: #25d366; /* WhatsApp Green */
+}
+
+.my-text {
+  margin-top: -20px; /* negative margin pushes it UP */
+}
+
+/* ------------------- Sticky Footer ------------------- */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #b01292;
+  color: white;
+  font-size: 5px;
+  text-align: center;
+  font-style: italic;
+  padding: 6px 0;
+  z-index: 1000;
+}
+
+.footer-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  font-weight: 1000;
+  font-size: 32px;
+  margin-bottom: 8px;
+  font-style: italic;
+  color: #c0b930; /* ✅ Safaricom Green */
+  animation: hazardBlink 1s infinite;
+  line-height: 1.8;
+  height: 30px; /* Blinking effect */
+}
+
+/* 🚨 Blink like hazard lights */
+@keyframes hazardBlink {
+  0%,
+  49% {
+    color: #30b930; /* Safaricom Green */
+  }
+  50%,
+  100% {
+    color: transparent;
+  }
+  /* Light OFF */
+}
+
+/* ------------------- Accessibility: reduce motion ------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .gallery-scroll {
+    animation: none !important;
+  }
+}

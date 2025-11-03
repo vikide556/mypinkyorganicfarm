@@ -1,0 +1,91 @@
+{% extends "myfarm/base.html" %}
+{% load static %}
+
+{% block title %}About Us | MyPinky Organic Farm{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hero" id="about-hero">
+  <h1>About MyPinky Organic Farm LTD </h1>
+  <p>Fresh. Honest. Organic — from our fields to your table.</p>
+</section>
+
+<!-- Our Story -->
+<section class="about py-5 bg-light" id="our-story">
+  <div class="container-fluid px-3">
+    <h2 class="text-center mb-4">Our Story</h2>
+    <p class="lead fs-4 text-center" style="color: #e75480;">
+      MyPinky Organic Farm started with a simple promise: grow food we’re proud to feed our own family.
+      Today we raise happy rabbits 🐇, dairy goats 🐐, improved kienyeji chicken 🐓, and fresh vegetables 🥬 —
+      all nurtured without harmful chemicals. We focus on sustainability, animal welfare, and soil health so
+      every harvest is nutritious and traceable.
+    </p>
+<button class="btn text-white" style="background-color:#30B54A;" 
+        data-bs-toggle="collapse" data-bs-target="#farmVideo">
+  🎥 Watch Our Farm Video
+</button>
+ 
+<!-- Collapsible video -->
+<div id="farmVideo" class="collapse text-center my-4">
+  <video width="80%" controls>
+  <source src="{% static 'myfarm/videos/1.ePMIS PSW Video.mp4' %}" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+</div>
+
+<!-- Our Values -->
+
+<section id="directors" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5" style="color: #30b930;">Meet Our  Team</h2>
+
+    <!-- Horizontal Scroll Wrapper -->
+    <div id="directors-wrapper">
+      <!-- Director 1 -->
+      
+      <div class="director-card text-center shadow-lg">
+        <img src="{% static 'myfarm/images/ceolydia.png' %}" 
+          alt="Dr Lydia Muriuki" 
+            class="img-fluid director-img">
+         <div class="card-body">
+         <h5 class="fw-bold">DR Lydia Muriuki</h5>
+         <p class="text-muted">Managing Director</p>
+         </div>
+      </div>
+
+      <!-- Director 2 -->
+      <div class="director-card text-center shadow-lg">
+        <img src="{% static 'myfarm/images/director2.jpg' %}" alt="Jane Smith">
+        <div class="card-body">
+          <h5 class="fw-bold">Mr David</h5>
+          <p class="text-muted">Operations Director</p>
+        </div>
+      </div>
+
+      <!-- Director 3 -->
+      <div class="director-card text-center shadow-lg">
+        <img src="{% static 'myfarm/images/goerge.jpg' %}" alt="Mike Johnson">
+        <div class="card-body">
+          <h5 class="fw-bold">Mr George</h5>
+          <p class="text-muted">Finance Director</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% comment %} ENDOF MEEAT THE MEET {% endcomment %}
+
+<!-- Call to Action -->
+<section id="cta" class="hero d-flex align-items-center text-center">
+  <div class="container-fluid">
+     <h1 class="display-4 fw-bold text-white">🌱 Visit or Order from MyPinky</h1>
+   
+    <a href="{% url 'contact' %}" 
+       class="btn btn-success btn-lg mt-3 px-4 py-2 fw-bold">
+      Contact Us
+    </a>
+  </div>
+</section>
+
+{% endblock %}
