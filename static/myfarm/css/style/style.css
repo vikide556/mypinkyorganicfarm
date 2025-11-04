@@ -685,6 +685,7 @@ body.fade-in {
   background: #fff;
   border-radius: 20px;
   overflow: hidden;
+  text-align: center;
   transition: transform 0.3s ease;
   padding-top: 100px;
   position: relative; /* important for absolute image */
